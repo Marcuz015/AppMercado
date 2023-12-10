@@ -1,35 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts, Oswald_300Light } from '@expo-google-fonts/oswald';
 
+import { AuthContext } from '../../Contexts/auth';
+
 export default function Guarana() {
+  const { preco, imagem, nome } = useContext(AuthContext); // Removi 'nome' pois não estava sendo usado
+
   const navigation = useNavigation();
   const [fonteLoader] = useFonts({
-    Oswald_300Light
+    Oswald_300Light,
   });
-  
-
-  const [carrinho, setCarrinho] = useState([]);
 
   if (!fonteLoader) {
     return null;
   }
-
-  const adicionarAoCarrinho = () => {
-    const item = {
-      imagem : '../../Images/guarana.png',
-      nome: 'Refrigerante Guaraná',
-      preco: 18.99,
-    };
-    setCarrinho([...carrinho, item]);
-    // Você pode adicionar mais lógica aqui, se necessário
-  };
-
-  const irParaCarrinho = () => {
-    navigation.navigate('Carrinho', { carrinho });
-  };
 
   return (
     <View style={styles.container}>
@@ -44,10 +31,10 @@ export default function Guarana() {
       </View>
       <View>
         <Text style={styles.descricao}>Refrigerante Guaraná Água da Serra</Text>
-        <Text style={{ fontSize: 40, textAlign: 'center', marginBottom: 20 }}>R$18,99</Text>
+        <Text style={{ fontSize: 40, textAlign: 'center', marginBottom: 20 }}>R$6,00</Text>
       </View>
       <View style={{ alignItems: 'center' }}>
-        <TouchableOpacity style={styles.btnCompra} onPress={adicionarAoCarrinho}>
+        <TouchableOpacity style={styles.btnCompra}>
           <Text style={styles.txtComprar}>Comprar</Text>
         </TouchableOpacity>
       </View>
@@ -71,7 +58,7 @@ const styles = StyleSheet.create({
   },
   img: {
     width: 400,
-    height: 400
+    height: 400,
   },
   titulo: {
     textAlign: 'center',
@@ -81,20 +68,22 @@ const styles = StyleSheet.create({
     width: '100%',
     color: '#fff',
     fontFamily: 'Oswald_300Light',
-    height: 39
+    height: 39,
+    paddingTop: 7, // Adicionado para ajustar o espaçamento no topo
   },
   descricao: {
     fontSize: 20,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   txtComprar: {
     fontSize: 25,
-    color: '#fff'
+    color: '#fff',
   },
   btnCompra: {
     backgroundColor: '#3498db',
     width: '80%',
     alignItems: 'center',
-    borderRadius: 20
-  }
+    borderRadius: 20,
+    marginTop: 20, // Adicionado para ajustar o espaçamento no topo
+  },
 });

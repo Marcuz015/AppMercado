@@ -7,8 +7,8 @@ import HomeScreen from '../Pages/HomeScreen';
 import PerfilScreen from '../Pages/PerfilScreen';
 import LoginScreen from '../Pages/LoginScreen';
 import guarana from '../Pages/Produtos/guarana';
-import limao from '../Pages/Produtos/limao';
-import laranja from '../Pages/Produtos/laranja';
+import coca from '../Pages/Produtos/coca';
+import pepsi from '../Pages/Produtos/pepsi';
 import carrinho from '../Pages/carrinho'
 
 
@@ -32,8 +32,8 @@ const Routes = () => {
           <Drawer.Screen name="LoginScreen" component={LoginScreen} />
           <Drawer.Screen name="carrinho" component={carrinho}/>
           <Drawer.Screen name="guarana" component={guarana}  options={{ headerShown: false }}/>
-          <Drawer.Screen name="limao" component={limao}  options={{ headerShown: false }}/>
-          <Drawer.Screen name="laranja" component={laranja}  options={{ headerShown: false }}/>
+          <Drawer.Screen name="limao" component={coca}  options={{ headerShown: false }}/>
+          <Drawer.Screen name="pepsi" component={pepsi}  options={{ headerShown: false }}/>
 
         </Drawer.Navigator>
   );

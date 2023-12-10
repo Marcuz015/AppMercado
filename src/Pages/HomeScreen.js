@@ -34,19 +34,19 @@ export default function HomeScreen() {
           <TouchableOpacity onPress={() => navigation.navigate("guarana")}>
             <View style={styles.refriContainer}>
               <Image source={require('../Images/guarana.png')} style={styles.refri} />
-              <Text style={styles.preco}>R$18,99</Text>
+              <Text style={styles.preco}>R$6,00</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("limao")}>
+          <TouchableOpacity onPress={() => navigation.navigate("coca")}>
             <View style={styles.refriContainer}>
-              <Image source={require('../Images/limao.png')} style={styles.refri} />
-              <Text style={styles.preco}>R$19,99</Text>
+              <Image source={require('../Images/coca.jpg')} style={styles.refri} />
+              <Text style={styles.preco}>R$7.50</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("laranja")}>
+          <TouchableOpacity onPress={() => navigation.navigate("pepsi")}>
             <View style={styles.refriContainer}>
-              <Image source={require('../Images/laranja.png')} style={styles.refri} />
-              <Text style={styles.preco}>R$20,99</Text>
+              <Image source={require('../Images/pepsi.jpg')} style={styles.refri} />
+              <Text style={styles.preco}>R$6,50</Text>
             </View>
           </TouchableOpacity>
         </ScrollView>

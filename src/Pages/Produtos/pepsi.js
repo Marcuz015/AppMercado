@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function laranja() {
+export default function pepsi() {
 
 const navigation = useNavigation();
   

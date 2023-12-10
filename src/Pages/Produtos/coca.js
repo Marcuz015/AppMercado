@@ -1,8 +1,11 @@
+import React, { useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function limao() {
+import { AuthContext } from '../../Contexts/auth';
+
+export default function coca() {
 
 const navigation = useNavigation();
   
