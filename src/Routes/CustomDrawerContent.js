@@ -1,7 +1,7 @@
-// CustomDrawerContent.js
 import React, { useContext } from 'react';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { AuthContext } from '../Contexts/auth';
 
@@ -27,8 +27,21 @@ const CustomDrawerContent = (props) => {
           <Text style={{ color: '#fff' }}>Login</Text>
         </TouchableOpacity>
       </View>
-      <DrawerItem label="Home" onPress={() => props.navigation.navigate('HomeScreen')} />
-      <DrawerItem label="Perfil" onPress={() => props.navigation.navigate('PerfilScreen')} />
+      <DrawerItem
+        label="Home"
+        icon={() => <Icon name="home" size={20} color="#000" />}
+        onPress={() => props.navigation.navigate('HomeScreen')}
+      />
+      <DrawerItem
+        label="Perfil"
+        icon={() => <Icon name="user" size={20} color="#000" />}
+        onPress={() => props.navigation.navigate('PerfilScreen')}
+      />
+      <DrawerItem
+        label="Carrinho"
+        icon={() => <Icon name="shopping-cart" size={20} color="#000" />}
+        onPress={() => props.navigation.navigate('carrinho')}
+      />
     </DrawerContentScrollView>
   );
 };

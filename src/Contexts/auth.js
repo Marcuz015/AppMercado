@@ -19,7 +19,7 @@ function AuthProvider({children}){
         }
     }
         return(
-            <AuthContext.Provider value={{nome: "jota", singIn, user}}>
+            <AuthContext.Provider value={{ singIn, user}}>
                 {children}
             </AuthContext.Provider>
         )

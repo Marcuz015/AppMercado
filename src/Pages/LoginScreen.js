@@ -21,7 +21,7 @@ export default function LoginScreen() {
         style={styles.input}
         value={nome}
         onChangeText={(text) => setnome(text)}
-        placeholder="Digite a senha"
+        placeholder="Digite seu nome"
      />
 
      <TextInput
