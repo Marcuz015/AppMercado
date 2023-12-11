@@ -3,13 +3,12 @@ import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts, Oswald_300Light } from '@expo-google-fonts/oswald';
-
-import { AuthContext } from '../../Contexts/auth';
+import { AuthContext } from '../../Contexts/auth'; 
 
 export default function Guarana() {
-  const { preco, imagem, nome } = useContext(AuthContext); // Removi 'nome' pois não estava sendo usado
-
   const navigation = useNavigation();
+  const { produto } = useContext(AuthContext); 
+
   const [fonteLoader] = useFonts({
     Oswald_300Light,
   });
@@ -17,6 +16,18 @@ export default function Guarana() {
   if (!fonteLoader) {
     return null;
   }
+
+  const handleCompra = () => {
+    // Chama a função produto do contexto com os detalhes do produto
+    produto(
+      require('../../Images/guarana.png'), // Adicione a lógica para obter a imagem do produto
+      'Refrigerante Guaraná Água da Serra', // Adicione a lógica para obter o nome do produto
+      6.0 // Adicione a lógica para obter o preço do produto
+    );
+
+    // Navega para a tela de carrinho
+    navigation.navigate('carrinho');
+  };
 
   return (
     <View style={styles.container}>
@@ -34,9 +45,9 @@ export default function Guarana() {
         <Text style={{ fontSize: 40, textAlign: 'center', marginBottom: 20 }}>R$6,00</Text>
       </View>
       <View style={{ alignItems: 'center' }}>
-        <TouchableOpacity style={styles.btnCompra}>
-          <Text style={styles.txtComprar}>Comprar</Text>
-        </TouchableOpacity>
+      <TouchableOpacity style={styles.btnCompra} onPress={handleCompra}>
+        <Text style={styles.txtComprar}>Comprar</Text>
+      </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -69,7 +80,8 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontFamily: 'Oswald_300Light',
     height: 39,
-    paddingTop: 7, // Adicionado para ajustar o espaçamento no topo
+    paddingTop: 7,
+    fontWeight: 'bold'
   },
   descricao: {
     fontSize: 20,

@@ -30,7 +30,7 @@ const Routes = () => {
           <Drawer.Screen name="HomeScreen" component={HomeScreen} />
           <Drawer.Screen name="PerfilScreen" component={PerfilScreen} />
           <Drawer.Screen name="LoginScreen" component={LoginScreen} />
-          <Drawer.Screen name="carrinho" component={carrinho}/>
+          <Drawer.Screen name="carrinho" component={carrinho} options={{ headerShown: false }}/>
           <Drawer.Screen name="guarana" component={guarana}  options={{ headerShown: false }}/>
           <Drawer.Screen name="limao" component={coca}  options={{ headerShown: false }}/>
           <Drawer.Screen name="pepsi" component={pepsi}  options={{ headerShown: false }}/>

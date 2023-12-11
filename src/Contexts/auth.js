@@ -19,24 +19,19 @@ function AuthProvider({ children }) {
     }
   }
 
-  function adicionarAoCarrinho(preco, nome, imagem) {
-    const item = {
-      preco: preco,
-      nome: nome,
-      imagem: imagem,
-    };
-
-    // Adiciona o item ao carrinho
-    setCarrinho((prevCarrinho) => [...prevCarrinho, item]);
-  }
-
-  function limparCarrinho() {
-    // Limpa o carrinho
-    setCarrinho([]);
+  function produto(imagem, nome, preco) {
+    setCarrinho((prevCarrinho) => [
+      ...prevCarrinho,
+      {
+        nome: nome,
+        imagem: imagem,
+        preco: preco,
+      },
+    ]);
   }
 
   return (
-    <AuthContext.Provider value={{ singIn, user, carrinho, adicionarAoCarrinho, limparCarrinho }}>
+    <AuthContext.Provider value={{ singIn, user, carrinho, produto }}>
       {children}
     </AuthContext.Provider>
   );
