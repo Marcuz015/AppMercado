@@ -7,10 +7,10 @@ export default function LoginScreen() {
  const [nome, setnome] = useState('');
  const [email, setEmail] = useState('');
 
- const {singIn} = useContext(AuthContext);
+ const {signIn} = useContext(AuthContext);
 
  function handleLogin(){
-  singIn(email, nome)
+  signIn(email, nome)
  }
 
  return (

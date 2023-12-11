@@ -3,11 +3,12 @@ import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts, Oswald_300Light } from '@expo-google-fonts/oswald';
-import { AuthContext } from '../../Contexts/auth'; 
+import { AuthContext } from '../../../Contexts/auth'; 
 
-export default function Guarana() {
+export default function coca() {
   const navigation = useNavigation();
-  const { produto } = useContext(AuthContext); 
+  const { adicionarProduto } = useContext(AuthContext);
+
 
   const [fonteLoader] = useFonts({
     Oswald_300Light,
@@ -18,14 +19,13 @@ export default function Guarana() {
   }
 
   const handleCompra = () => {
-    // Chama a função produto do contexto com os detalhes do produto
-    produto(
-      require('../../Images/guarana.png'), // Adicione a lógica para obter a imagem do produto
-      'Refrigerante Guaraná Água da Serra', // Adicione a lógica para obter o nome do produto
-      6.0 // Adicione a lógica para obter o preço do produto
+
+    adicionarProduto(
+      require('../../../Images/cocacola.png'),
+      'Coca Cola 2 Litros',
+      7.99
     );
 
-    // Navega para a tela de carrinho
     navigation.navigate('carrinho');
   };
 
@@ -33,16 +33,16 @@ export default function Guarana() {
     <View style={styles.container}>
       <View style={styles.volta}>
         <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
-          <Image source={require('../../Images/Seta.png')} style={styles.seta} />
+          <Image source={require('../../../Images/Seta.png')} style={styles.seta} />
         </TouchableOpacity>
       </View>
-      <Text style={styles.titulo}>Refrigerante Guaraná</Text>
+      <Text style={styles.titulo}>Coca Cola</Text>
       <View style={{ alignItems: 'center' }}>
-        <Image source={require('../../Images/guarana.png')} style={styles.img} />
+        <Image source={require('../../../Images/cocacola.png')} style={styles.img} />
       </View>
       <View>
-        <Text style={styles.descricao}>Refrigerante Guaraná Água da Serra</Text>
-        <Text style={{ fontSize: 40, textAlign: 'center', marginBottom: 20 }}>R$6,00</Text>
+        <Text style={styles.descricao}>Refrigerante Coca cola 2 litros</Text>
+        <Text style={{ fontSize: 40, textAlign: 'center', marginBottom: 20 }}>R$7,99</Text>
       </View>
       <View style={{ alignItems: 'center' }}>
       <TouchableOpacity style={styles.btnCompra} onPress={handleCompra}>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     height: 30,
   },
   volta: {
-    marginTop: 50,
+    marginTop: 35,
     marginLeft: 10,
   },
   img: {

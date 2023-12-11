@@ -10,7 +10,7 @@ const navigation = useNavigation();
     <View style={styles.container}>
       <View style={styles.volta}>
         <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
-          <Image source={require('../../Images/Seta.png')} style={styles.seta} />
+          <Image source={require('../../../Images/Seta.png')} style={styles.seta} />
         </TouchableOpacity>
       </View>
       <Text></Text>

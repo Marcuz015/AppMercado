@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 export const AuthContext = createContext({});
@@ -8,7 +8,7 @@ function AuthProvider({ children }) {
   const [carrinho, setCarrinho] = useState([]);
   const navigation = useNavigation();
 
-  function singIn(email, nome) {
+  function signIn(email, nome) {
     if (email !== '' && nome !== '') {
       setUser({
         email: email,
@@ -19,7 +19,7 @@ function AuthProvider({ children }) {
     }
   }
 
-  function produto(imagem, nome, preco) {
+  function adicionarProduto(imagem, nome, preco) {
     setCarrinho((prevCarrinho) => [
       ...prevCarrinho,
       {
@@ -30,8 +30,16 @@ function AuthProvider({ children }) {
     ]);
   }
 
+  const removerDoCarrinho = (index) => {
+    setCarrinho((prevCarrinho) => {
+      const novoCarrinho = [...prevCarrinho];
+      novoCarrinho.splice(index, 1);
+      return novoCarrinho;
+    });
+  };
+
   return (
-    <AuthContext.Provider value={{ singIn, user, carrinho, produto }}>
+    <AuthContext.Provider value={{ signIn, user, carrinho, adicionarProduto, removerDoCarrinho }}>
       {children}
     </AuthContext.Provider>
   );

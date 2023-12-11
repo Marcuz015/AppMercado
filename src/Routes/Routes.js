@@ -6,10 +6,11 @@ import CustomDrawerContent from './CustomDrawerContent';
 import HomeScreen from '../Pages/HomeScreen';
 import PerfilScreen from '../Pages/PerfilScreen';
 import LoginScreen from '../Pages/LoginScreen';
-import guarana from '../Pages/Produtos/guarana';
-import coca from '../Pages/Produtos/coca';
-import pepsi from '../Pages/Produtos/pepsi';
 import carrinho from '../Pages/carrinho'
+import pepsi from '../Pages/Produtos/refri/pepsi'
+import Guarana from '../Pages/Produtos/refri/guarana';
+import coca from '../Pages/Produtos/refri/coca';
+
 
 
 const Drawer = createDrawerNavigator();
@@ -31,8 +32,8 @@ const Routes = () => {
           <Drawer.Screen name="PerfilScreen" component={PerfilScreen} />
           <Drawer.Screen name="LoginScreen" component={LoginScreen} />
           <Drawer.Screen name="carrinho" component={carrinho} options={{ headerShown: false }}/>
-          <Drawer.Screen name="guarana" component={guarana}  options={{ headerShown: false }}/>
-          <Drawer.Screen name="limao" component={coca}  options={{ headerShown: false }}/>
+          <Drawer.Screen name="guarana" component={Guarana}  options={{ headerShown: false }}/>
+          <Drawer.Screen name="coca" component={coca}  options={{ headerShown: false }}/>
           <Drawer.Screen name="pepsi" component={pepsi}  options={{ headerShown: false }}/>
 
         </Drawer.Navigator>

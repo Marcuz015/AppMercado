@@ -22,7 +22,7 @@ export default function HomeScreen() {
         <Text style={{ textAlign: 'center', fontFamily: "Oswald_300Light", fontSize: 20, marginBottom: 50 }}>tal do Guiguinho Markets</Text>
         <View style={styles.promocao}>
           <Text style={{fontSize: 17}}>Fique atento na promoção do dia!!</Text>
-          <Image source={{uri:'https://img.freepik.com/fotos-gratis/textura-de-parede-de-estuque-azul-marinho-de-relevo-decorativo-grunge-abstrato-fundo-colorido-aspero-de-angulo-amplo_1258-28311.jpg'}} style={styles.img} />
+          <Image source={require('../Images/promoção.jpeg')} style={styles.img} />
         </View>
         <StatusBar style="auto" />
       </View>
@@ -39,8 +39,8 @@ export default function HomeScreen() {
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("coca")}>
             <View style={styles.refriContainer}>
-              <Image source={require('../Images/coca.jpg')} style={styles.refri} />
-              <Text style={styles.preco}>R$7.50</Text>
+              <Image source={require('../Images/cocacola.png')} style={styles.refri} />
+              <Text style={styles.preco}>R$7.99</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("pepsi")}>
@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   img: {
-    width: 310,
-    height: 180
+    width: 200,
+    height: 360
   },
   titulo: {
     fontSize: 24,
