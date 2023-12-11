@@ -23,7 +23,7 @@ export default function Guarana() {
     adicionarProduto(
       require('../../../Images/guarana.png'),
       'Refrigerante Guaraná Água da Serra',
-      6.0
+      6.25
     );
 
     navigation.navigate('carrinho');

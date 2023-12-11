@@ -6,10 +6,15 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { AuthContext } from '../Contexts/auth';
 
 const CustomDrawerContent = (props) => {
-  const { nome, user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
 
   const navigateToLogin = () => {
     props.navigation.navigate('LoginScreen');
+  };
+
+  const handleLogout = () => {
+    // Chame a função de logout do seu contexto de autenticação
+    logout();
   };
 
   return (
@@ -23,9 +28,17 @@ const CustomDrawerContent = (props) => {
           <Text style={styles.userName}>{user.nome}</Text>
           <Text style={styles.userEmail}>{user.email}</Text>
         </View>
-        <TouchableOpacity onPress={navigateToLogin} style={styles.button}>
-          <Text style={{ color: '#fff' }}>Login</Text>
-        </TouchableOpacity>
+        {user ? (
+          // Se o usuário estiver logado, exiba o botão de logout
+          <TouchableOpacity onPress={handleLogout} style={styles.button}>
+            <Text style={{ color: '#fff' }}>Logout</Text>
+          </TouchableOpacity>
+        ) : (
+          // Se o usuário não estiver logado, exiba o botão de login
+          <TouchableOpacity onPress={navigateToLogin} style={styles.button}>
+            <Text style={{ color: '#fff' }}>Login</Text>
+          </TouchableOpacity>
+        )}
       </View>
       <DrawerItem
         label="Home"

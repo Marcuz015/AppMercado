@@ -8,12 +8,12 @@ export default function HomeScreen() {
   const [fonteLoader] = useFonts({
     Oswald_300Light
   });
-
-  const navigation = useNavigation();
-
   if (!fonteLoader) {
     return null;
   }
+
+  const navigation = useNavigation();
+
 
   return (
     <ScrollView>
@@ -45,7 +45,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("pepsi")}>
             <View style={styles.refriContainer}>
-              <Image source={require('../Images/pepsi.jpg')} style={styles.refri} />
+              <Image source={require('../Images/pepsi.png')} style={styles.refri} />
               <Text style={styles.preco}>R$6,50</Text>
             </View>
           </TouchableOpacity>
