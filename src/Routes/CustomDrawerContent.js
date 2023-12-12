@@ -8,35 +8,34 @@ import { AuthContext } from '../Contexts/auth';
 const CustomDrawerContent = (props) => {
   const { user, logout } = useContext(AuthContext);
 
-  const navigateToLogin = () => {
+  const handleLogin = () => {
     props.navigation.navigate('LoginScreen');
   };
 
   const handleLogout = () => {
-    // Chame a função de logout do seu contexto de autenticação
     logout();
   };
 
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.userInfoContainer}>
+        <View style={{borderWidth: 1, borderRadius: 30}}>
         <Image
-          source={{ uri: 'https://cdn-icons-png.flaticon.com/512/1373/1373255.png' }}
-          style={{ width: 100, height: 100, borderRadius: 50 }}
+          source={{ uri: 'https://gifs.eco.br/wp-content/uploads/2023/10/imagens-de-pessoa-feliz-png-0-1024x729.png' }}
+          style={styles.userImage}
         />
+        </View>
         <View style={styles.userInfoText}>
-          <Text style={styles.userName}>{user.nome}</Text>
-          <Text style={styles.userEmail}>{user.email}</Text>
+          <Text style={styles.userName}>{user ? user.nome : 'Convidado'}</Text>
+          <Text style={styles.userEmail}>{user ? user.email : 'Faça login para visualizar o e-mail'}</Text>
         </View>
         {user ? (
-          // Se o usuário estiver logado, exiba o botão de logout
           <TouchableOpacity onPress={handleLogout} style={styles.button}>
-            <Text style={{ color: '#fff' }}>Logout</Text>
+            <Text style={styles.buttonText}>Logout</Text>
           </TouchableOpacity>
         ) : (
-          // Se o usuário não estiver logado, exiba o botão de login
-          <TouchableOpacity onPress={navigateToLogin} style={styles.button}>
-            <Text style={{ color: '#fff' }}>Login</Text>
+          <TouchableOpacity onPress={handleLogin} style={styles.button}>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -83,6 +82,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginTop: 10,
   },
+  userImage:{
+    width: 100,
+    height: 100,
+  }
 });
 
 export default CustomDrawerContent;

@@ -23,13 +23,9 @@ export default function CarrinhoScreen() {
   const finalizarCompra = () => {
     if (user && user.nome) {
 
-      navigation.navigate('finalizarcompra');
-      
-    } else {
-
       navigation.navigate('LoginScreen');
-
-    }
+      
+    } 
   };
 
   return (

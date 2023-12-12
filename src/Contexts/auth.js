@@ -18,6 +18,12 @@ function AuthProvider({ children }) {
       navigation.navigate('HomeScreen');
     }
   }
+function logout() {
+    //console.log("Realizando logout...");
+    setUser(null);
+    //console.log("Usuário deslogado com sucesso.");
+}
+
 
   function adicionarProduto(imagem, nome, preco) {
     setCarrinho((prevCarrinho) => [
@@ -39,7 +45,7 @@ function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ signIn, user, carrinho, adicionarProduto, removerDoCarrinho }}>
+    <AuthContext.Provider value={{ signIn, user, carrinho, adicionarProduto, removerDoCarrinho,logout }}>
       {children}
     </AuthContext.Provider>
   );
