@@ -1,53 +1,68 @@
+// LoginScreen.js
 import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import {AuthContext} from '../Contexts/auth'
+import { AuthContext } from '../Contexts/auth';
 
 export default function LoginScreen() {
- const [nome, setnome] = useState('');
- const [email, setEmail] = useState('');
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
 
- const {signIn} = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
- function handleLogin(){
-  signIn(email, nome)
- }
+  const navigation = useNavigation();
 
- return (
-   <View style={styles.container}>
-     <Text style={styles.title}>Seja bem vindo(a)!</Text>
+  function handleLogin() {
+    // Verifica se o nome e o email estão preenchidos
+    if (!nome.trim() || !email.trim()) {
+      // Trate conforme necessário, como exibindo uma mensagem de erro
+      return;
+    }
 
-     <TextInput
+    signIn(email, nome);
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Seja bem vindo(a)!</Text>
+
+      <TextInput
         style={styles.input}
         value={nome}
-        onChangeText={(text) => setnome(text)}
+        onChangeText={(text) => setNome(text)}
         placeholder="Digite seu nome"
-     />
+      />
 
-     <TextInput
+      <TextInput
         style={styles.input}
         value={email}
         onChangeText={(text) => setEmail(text)}
         placeholder="Digite seu email"
-     />
-     <TouchableOpacity style={styles.button} onPress={handleLogin}>
-       <Text style={styles.buttonText}>Acessar</Text>
-     </TouchableOpacity>
-   </View>
+      />
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Acessar</Text>
+      </TouchableOpacity>
+      <View>
+      <TouchableOpacity onPress={() => navigation.navigate("logar", { email, nome })}>
+        <Text style={styles.naoPossuoCadastro}>Não possuo cadastro</Text>
+      </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
+  container: {
+    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  title:{
+  title: {
     marginBottom: 14,
     fontSize: 20,
   },
-  input:{
+  input: {
     width: '90%',
     height: 45,
     backgroundColor: '#A7A7A7',
@@ -55,16 +70,20 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     padding: 8,
   },
-  button:{
+  button: {
     width: '90%',
     height: 45,
     backgroundColor: '#3498db',
     borderRadius: 40,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  buttonText:{
+  buttonText: {
     fontSize: 20,
-    color: '#FFF'
-  }
-})
+    color: '#FFF',
+  },
+  naoPossuoCadastro: {
+    paddingLeft: 150,
+    paddingTop: 15,
+  },
+});

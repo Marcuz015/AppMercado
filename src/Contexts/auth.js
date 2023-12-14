@@ -18,10 +18,21 @@ function AuthProvider({ children }) {
       navigation.navigate('HomeScreen');
     }
   }
+  function logar(email, nome, senha, cpf) {
+    if (email !== '' && nome !== '' && senha !== '' && cpf !== '') {
+      setUser({
+        email: email,
+        nome: nome,
+        senha: senha,
+        cpf: cpf
+      });
+
+      navigation.navigate('HomeScreen');
+    }
+  }
+
 function logout() {
-    //console.log("Realizando logout...");
     setUser(null);
-    //console.log("Usuário deslogado com sucesso.");
 }
 
 
@@ -45,7 +56,7 @@ function logout() {
   };
 
   return (
-    <AuthContext.Provider value={{ signIn, user, carrinho, adicionarProduto, removerDoCarrinho,logout }}>
+    <AuthContext.Provider value={{ signIn, user, carrinho, adicionarProduto, removerDoCarrinho, logout, logar }}>
       {children}
     </AuthContext.Provider>
   );

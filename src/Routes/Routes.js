@@ -10,6 +10,7 @@ import carrinho from '../Pages/carrinho'
 import pepsi from '../Pages/Produtos/refri/pepsi'
 import Guarana from '../Pages/Produtos/refri/guarana';
 import coca from '../Pages/Produtos/refri/coca';
+import logar from '../Pages/logar';
 
 
 
@@ -31,6 +32,7 @@ const Routes = () => {
           <Drawer.Screen name="HomeScreen" component={HomeScreen} />
           <Drawer.Screen name="PerfilScreen" component={PerfilScreen} />
           <Drawer.Screen name="LoginScreen" component={LoginScreen} />
+          <Drawer.Screen name="logar" component={logar} options={{ headerShown: false }}/>
           <Drawer.Screen name="carrinho" component={carrinho} options={{ headerShown: false }}/>
           <Drawer.Screen name="guarana" component={Guarana}  options={{ headerShown: false }}/>
           <Drawer.Screen name="coca" component={coca}  options={{ headerShown: false }}/>
